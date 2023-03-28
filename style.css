@@ -4,6 +4,14 @@
 body {overflow-x: hidden;
 overflow-y: hidden;}
 
+.play-pause-btn::before {
+  content: "\f04b";
+}
+
+.play-pause-btn::after {
+  content: "\f04c";
+}
+
 #pomodoro-container {
     display: flex;
     flex-direction: column;
