@@ -27,16 +27,33 @@ longBreakIntervalBtn.addEventListener('click', () => {
     updateTimeLeftTextContent();
 });
 
+startStopBtn.innerHTML = '<i class="fas fa-play"></i>';
 startStopBtn.addEventListener('click', () => {
-    if (startStopBtn.textContent === 'Start') {
-        startTimer();
-        startStopBtn.textContent = 'Stop';
-    } else {
-        clearInterval(timerInterval);
-        startStopBtn.textContent = 'Start';
-    }
+  if (startStopBtn.classList.contains('paused')) {
+    startTimer();
+    startStopBtn.innerHTML = '<i class="fas fa-pause"></i>';
+    startStopBtn.classList.remove('paused');
+  } else {
+    clearInterval(timerInterval);
+    startStopBtn.innerHTML = '<i class="fas fa-play"></i>';
+    startStopBtn.classList.add('paused');
+  }
 });
 
+resetBtn.innerHTML = '<i class="fas fa-redo"></i>';
+resetBtn.addEventListener('click', () => {
+  clearInterval(timerInterval);
+  if (currentInterval === 'pomodoro') {
+    timeLeft = 25 * 60;
+  } else if (currentInterval === 'short-break') {
+    timeLeft = 5 * 60;
+  } else {
+    timeLeft = 10 * 60;
+  }
+  updateTimeLeftTextContent();
+  startStopBtn.innerHTML = '<i class="fas fa-play"></i>';
+  startStopBtn.classList.remove('paused');
+});
 function startTimer() {
     timerInterval = setInterval(() => {
         timeLeft--;
@@ -69,7 +86,8 @@ resetBtn.addEventListener('click', () => {
         timeLeft = 10 * 60;
     }
     updateTimeLeftTextContent();
-    startStopBtn.textContent = 'Start';
+    startStopBtn.classList.remove('fa-stop');
+    startStopBtn.classList.add('fa-play');
 });
 
 function updateTimeLeftTextContent() {
