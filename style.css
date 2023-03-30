@@ -65,11 +65,11 @@ body {
 /* media queries for different screen sizes */
 @media (max-width: 768px) {
   #time-left {
-    font-size: 4rem;
+    font-size: 7rem;
   }
   
   .interval-btn, #start-stop-btn, #reset-btn {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     padding: 0.25rem 0.5rem;
     margin: 0.125rem;
   }
@@ -77,11 +77,11 @@ body {
 
 @media (max-width: 480px) {
   #time-left {
-    font-size: 3rem;
+    font-size: 7rem;
   }
   
   .interval-btn, #start-stop-btn, #reset-btn {
-    font-size: 0.5rem;
+    font-size: 0.7rem;
     padding: 0.125rem 0.25rem;
     margin: 0.125rem;
   }
